@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import zijinfeihong.bbs.demo.service.EmailService;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @author sherman
  * @create 2020--08--02 23:51
@@ -19,13 +21,15 @@ public class EmailController {
     EmailService emailService;
 
     @PostMapping("/sendIdentification")
-    public String sendIdentification(String username, String email, int sign) throws MessagingException, javax.mail.MessagingException {
+    public String sendIdentification(String username, String email, int sign,HttpSession session) throws MessagingException, javax.mail.MessagingException {
         if(username!=null&&email!=null){
             if(sign==1){
-                emailService.sendEmail(username,email,"注册时的验证码","邮箱验证");
+                int number1=emailService.sendEmail(username,email,"注册时的验证码","邮箱验证");
+                session.setAttribute("registerCode",number1);
             }
             if(sign==2){
-                emailService.sendEmail(username,email,"找回密码时的验证码","找回密码");
+                int number2=emailService.sendEmail(username,email,"找回密码时的验证码","找回密码");
+                session.setAttribute("retrieveCode",number2);
             }
         }
         return "sendIdentification";
@@ -33,8 +37,10 @@ public class EmailController {
 
 
     @PostMapping("/Retrieve")
-    public String retrieveValidation(int randomNum, Model model){
-        if(randomNum==emailService.getRandom()){
+    public String retrieveValidation(int RetrieveCode, Model model,HttpSession session){
+        Object object=session.getAttribute("retrieveCode");
+        int retrieveCode=(int)object;
+        if(RetrieveCode==retrieveCode){
             model.addAttribute("msg","成功");
             return "可以的";
         }

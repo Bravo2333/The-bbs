@@ -10,8 +10,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String[] NO_AUTH_LIST = {
             "/register",
             "/home",
-//            "/sendIdentification",
-//            "/Retrieve"
+            "/sendIdentification",
+            "/Retrieve"
     };
 
     @Override
