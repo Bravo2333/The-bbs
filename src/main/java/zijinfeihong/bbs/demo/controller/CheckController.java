@@ -1,4 +1,4 @@
-package zijinfeihong.bbs.demo.Controller;
+package zijinfeihong.bbs.demo.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
