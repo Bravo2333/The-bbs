@@ -1,4 +1,4 @@
-package zijinfeihong.bbs.demo.Dao;
+package zijinfeihong.bbs.demo.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
