@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import zijinfeihong.bbs.demo.service.EmailService;
+import zijinfeihong.bbs.demo.service.RegisterService;
 
 import javax.servlet.http.HttpSession;
 
@@ -30,6 +31,7 @@ public class RegisterController {
                 return "验证码正确";
             }
             else return "验证码错误";
-        }
+
+    }
 
 }
