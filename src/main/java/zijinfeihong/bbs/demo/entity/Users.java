@@ -6,6 +6,7 @@ public class Users {
     private String username;
     private String account;
     private String password;
+    private String headpath;
 
     public String getUsername() {
         return username;
@@ -45,5 +46,13 @@ public class Users {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public String getHeadpath() {
+        return headpath;
+    }
+
+    public void setHeadpath(String headpath) {
+        this.headpath = headpath;
     }
 }

@@ -16,18 +16,20 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private static final String[] NO_AUTH_LIST = {
-            "/home",
-            "/sendIdentification",
-            "/Retrieve",
-            "/check"
+    private static final String[] NO_AUTH_LIST = new String[]{
+              "/home",
+//            "/sendIdentification",
+//            "/Retrieve",
+//            "/check"
     };
     @Bean
     public PasswordEncoder passwordEncoder(){
         // 使用BCrypt加密密码
         return new BCryptPasswordEncoder();}
+
     @Autowired
     DataSource dataSource;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().cors()

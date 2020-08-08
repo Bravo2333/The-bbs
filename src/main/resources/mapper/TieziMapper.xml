@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zijinfeihong.bbs.demo.dao.TieziDao">
+    <select id="queryTieziList" resultType="Tiezi">
+        select * from tiezi
+    </select>
+    <select id="queryTieziById" resultType="Tiezi">
+        select * from tiezi where tiezi.id = #{id}
+    </select>
+    <insert id="addTiezi" parameterType="Tiezi">
+        insert into tiezi (author,time,content) values (#{author},#{time},#{content})
+    </insert>
+    <delete id="deleteTiezi" parameterType="int">
+        delete from tiezi where tiezi.id = #{id}
+    </delete>
+    <update id="updateTiezi" parameterType="Tiezi">
+        update tiezi set tiezi.like = #{like} where tiezi.id = #{id}
+    </update>
+</mapper>

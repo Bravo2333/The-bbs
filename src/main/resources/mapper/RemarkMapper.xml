@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zijinfeihong.bbs.demo.dao.RemarkDao">
+    <select id="queryRemarkList" resultType="Remark">
+        select * from remark
+    </select>
+    <select id="queryRemarkById" resultType="Remark">
+        select * from remark where remark.id = #{id}
+    </select>
+    <select id="queryRemarkByTid" resultType="Remark">
+        select * from remark where remark.tid = #{tid}
+    </select>
+    <insert id="addRemark" parameterType="Remark">
+        insert into remark (author,time,content,tid) values (#{author},#{time},#{content},#{tid})
+    </insert>
+    <delete id="deleteRemark" parameterType="int">
+        delete from remark where remark.id = #{id}
+    </delete>
+    <update id="updateRemark" parameterType="Remark">
+        update remark set remark.like = #{like} where remark.id = #{id}
+    </update>
+</mapper>

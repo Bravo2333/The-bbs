@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zijinfeihong.bbs.demo.dao.ReplyDao">
+    <select id="queryReplyList" resultType="Reply">
+        select * from reply
+    </select>
+    <select id="queryReplyById" resultType="Reply">
+        select * from reply where reply.id = #{id}
+    </select>
+    <select id="queryReplyByRid" resultType="Reply">
+        select * from reply where reply.rid = #{rid}
+    </select>
+    <insert id="addReply" parameterType="Reply">
+        insert into reply (author,time,content,rid,isThird) values (#{author},#{time},#{content},#{rid},#{isThird})
+    </insert>
+    <delete id="deleteReply" parameterType="int">
+        delete from reply where reply.id = #{id}
+    </delete>
+    <update id="updateReply" parameterType="Reply">
+        update reply set reply.like = #{like} where reply.id = #{id}
+    </update>
+</mapper>

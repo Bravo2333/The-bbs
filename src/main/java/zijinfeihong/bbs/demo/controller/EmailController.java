@@ -1,12 +1,12 @@
 package zijinfeihong.bbs.demo.controller;
 
-import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import zijinfeihong.bbs.demo.service.EmailService;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -21,7 +21,7 @@ public class EmailController {
     EmailService emailService;
 
     @PostMapping("/sendIdentification")
-    public String sendIdentification(String username, String email, int sign,HttpSession session) throws MessagingException, javax.mail.MessagingException {
+    public String sendIdentification(String username, String email, int sign,HttpSession session) throws MessagingException {
         if(username!=null&&email!=null){
             if(sign==1){
                 int number1=emailService.sendEmail(username,email,"注册时的验证码","邮箱验证");
