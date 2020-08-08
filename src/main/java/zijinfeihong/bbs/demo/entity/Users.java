@@ -6,6 +6,15 @@ public class Users {
     private String username;
     private String account;
     private String password;
+    private String headpath;
+
+    public String getHeadpath() {
+        return headpath;
+    }
+
+    public void setHeadpath(String headpath) {
+        this.headpath = headpath;
+    }
 
     public String getUsername() {
         return username;
