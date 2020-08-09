@@ -2,6 +2,7 @@ package zijinfeihong.bbs.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -148,7 +149,7 @@ public class FileController {
                 dest.getParentFile().mkdirs();
             try {
                 file.transferTo(dest);
-//                fileService.headUpload(path,username);
+                fileService.headUpload(username,path);
                 return "success";
             } catch (IOException e) {
                 return "error";

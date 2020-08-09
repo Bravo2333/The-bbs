@@ -1,11 +1,8 @@
 package zijinfeihong.bbs.demo.controller;
 
 import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import zijinfeihong.bbs.demo.service.EmailService;
-import zijinfeihong.bbs.demo.service.RegisterService;
 
 import javax.servlet.http.HttpSession;
 
