@@ -1,7 +1,9 @@
 package zijinfeihong.bbs.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zijinfeihong.bbs.demo.dao.UserDao;
+import zijinfeihong.bbs.demo.entity.Users;
 
 /**
  * @author sherman
@@ -11,9 +13,12 @@ import zijinfeihong.bbs.demo.dao.UserDao;
 @Service
 public class FileService {
 
+    @Autowired
     UserDao userDao;
-    public void headUpload(String headLocation,String username){
-//        userDao.userHeadpathUpdate(headLocation,username);
+    public void headUpload(String username,String path){
+        Users user = userDao.queryUserByName(username);
+        user.setHeadpath(path);
+        userDao.updateHeadPath(user);
     }
 }
 

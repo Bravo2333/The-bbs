@@ -7,17 +7,6 @@ public class Users {
     private String account;
     private String password;
     private String headpath;
-<<<<<<< HEAD
-=======
-
-    public String getHeadpath() {
-        return headpath;
-    }
-
-    public void setHeadpath(String headpath) {
-        this.headpath = headpath;
-    }
->>>>>>> 4c1dd5d165d73393127000805c897a98b358cdfb
 
     public String getUsername() {
         return username;
