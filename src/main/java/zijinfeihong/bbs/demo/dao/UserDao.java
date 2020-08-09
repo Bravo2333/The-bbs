@@ -10,5 +10,5 @@ public interface UserDao {
     @Select("Select * from user where username=#{username}")
     Users userChecker(String username);
     @Insert("insert into user (email,username,password,headpath) values(#{email},#{username},#{password},#{headpath})")
-    Boolean userRegister(UserDao user);
+    Boolean userRegister(Users user);
 }

@@ -4,20 +4,15 @@ public class Users {
     private int id;
     private String email;
     private String username;
-    private String account;
     private String password;
     private String headpath;
-<<<<<<< HEAD
-=======
 
-    public String getHeadpath() {
-        return headpath;
+    public Users(String email, String username, String password,String headpath) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.headpath="";
     }
-
-    public void setHeadpath(String headpath) {
-        this.headpath = headpath;
-    }
->>>>>>> 4c1dd5d165d73393127000805c897a98b358cdfb
 
     public String getUsername() {
         return username;
@@ -50,15 +45,6 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
     public String getHeadpath() {
         return headpath;
     }

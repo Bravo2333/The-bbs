@@ -15,22 +15,21 @@ public class RegisterController {
 
         @PostMapping("/register")
         public String register(@Param("Username")String username,
-                               @Param("account")String account,
                                @Param("password")String password,
                                @Param("email")String email,
                                @Param("identification")String identification,
                                HttpSession session){
             Object object=session.getAttribute("registerCode");
             if(object==null){
-                return "session为空";
+                return "验证码发送错误！";
             }
             int retrieveCode=(Integer) object;
             String code=String.valueOf(retrieveCode);
             if(identification.equals(code)){
                 session.removeAttribute("registerCode");
-                return "验证码正确";
+                return "验证码正确，注册成功。";
             }
-            else return "验证码错误";
+            else return "验证码错误，注册失败。";
 
     }
 
