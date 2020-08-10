@@ -16,7 +16,7 @@ public class FileService {
     @Autowired
     UserDao userDao;
     public void headUpload(String username,String path){
-        Users user = userDao.queryUserByName(username);
+        Users user = userDao.userChecker(username);
         user.setHeadpath(path);
         userDao.updateHeadPath(user);
     }
