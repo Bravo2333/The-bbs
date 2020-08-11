@@ -8,18 +8,19 @@ import zijinfeihong.bbs.demo.service.LoginService;
 
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 public class LoginController {
     @Autowired
     LoginService loginService;
-    @CrossOrigin
     @PostMapping(value = "/login")
-    @ResponseBody
-    public String login(@RequestBody Users requestUser, HttpSession session) {
-        String username = requestUser.getUsername();
-        session.setAttribute("statu","online");
-        if(loginService.userlogin(requestUser))
-        return  "登陆成功";
+    public String login(@RequestParam ("username")String username,
+                        @RequestParam("password")String password,
+                        HttpSession session) {
+
+        Users requestUser=new Users("",username,password,"");
+        if(loginService.userlogin(requestUser)){
+            session.setAttribute("statu","online");
+        return  "登陆成功";}
         return "登陆失败";
 }}
 

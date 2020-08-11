@@ -1,15 +1,18 @@
 package zijinfeihong.bbs.demo.controller;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import zijinfeihong.bbs.demo.service.RegisterService;
 
 import javax.servlet.http.HttpSession;
 
 
 @RestController
 public class RegisterController {
-
+    @Autowired
+    RegisterService registerService;
         @PostMapping("/register")
         public String register(@Param("Username")String username,
                                @Param("password")String password,
@@ -24,6 +27,7 @@ public class RegisterController {
             String code=String.valueOf(retrieveCode);
             if(identification.equals(code)){
                 session.removeAttribute("registerCode");
+                registerService.registerService(username,password,email);
                 return "验证码正确，注册成功。";
             }
             else return "验证码错误，注册失败。";

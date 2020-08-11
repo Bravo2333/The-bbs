@@ -11,9 +11,9 @@ import zijinfeihong.bbs.demo.entity.Users;
 public class LoginService {
     @Autowired
     UserDao userDao;
-    public boolean userlogin(@RequestBody Users requestUser){
+    public boolean userlogin(Users requestUser){
         Users users=userDao.userChecker(requestUser.getUsername());
 
-        return (users.getPassword()==requestUser.getPassword());
+        return (users.getPassword().equals(requestUser.getPassword()));
     }
 }
