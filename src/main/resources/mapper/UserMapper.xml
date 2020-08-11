@@ -5,7 +5,4 @@
     <update id="updateHeadPath" parameterType="Users">
         update user set headpath = #{headpath} where username = #{username}
     </update>
-    <select id="queryUserByName" parameterType="String" resultType="Users">
-        select * from user where username = #{username}
-    </select>
 </mapper>
