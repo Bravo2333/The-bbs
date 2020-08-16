@@ -1,4 +1,4 @@
-package zijinfeihong.bbs.demo.entity;
+package zijinfeihong.bbs.demo.pojo;
 
 public enum  ResultEnum {
 

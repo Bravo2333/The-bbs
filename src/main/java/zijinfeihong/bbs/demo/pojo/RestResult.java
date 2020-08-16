@@ -1,4 +1,4 @@
-package zijinfeihong.bbs.demo.entity;
+package zijinfeihong.bbs.demo.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
