@@ -12,15 +12,15 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     @Autowired
     LoginService loginService;
-    @PostMapping(value = "/login")
-    public String login(@RequestParam ("username")String username,
+    @PostMapping(value = "/Login")
+    public int login(@RequestParam ("username")String username,
                         @RequestParam("password")String password,
                         HttpSession session) {
 
         Users requestUser=new Users("",username,password,"");
         if(loginService.userlogin(requestUser)){
             session.setAttribute("statu","online");
-        return  "登陆成功";}
-        return "登陆失败";
+        return  200;}
+        return  200;
 }}
 
