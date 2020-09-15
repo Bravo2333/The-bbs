@@ -17,43 +17,41 @@ import java.util.List;
 
 @RestController
 public class TieziController {
-
-
     @Autowired
     TieziService tieziService;
 
     @PostMapping("/add")
-    public String add(String author,String content){
+    public String add(String username,String author,String content){
         tieziService.addTiezi(author,content);
         return "add";
     }
 
     @PostMapping("/remark")
-    public String remark(String author,String content,int tid){
+    public String remark(String username,String author,String content,int tid){
         tieziService.remark(author,content,tid);
         return "remark";
     }
 
     @PostMapping("/reply")
-    public String reply(String author,String content,int rid, int isThird){
+    public String reply(String username,String author,String content,int rid, int isThird){
         tieziService.reply(author, content, rid,isThird);
         return "reply";
     }
 
     @PostMapping("/recommend")
-    public List<Tiezi> recommend(){
+    public List<Tiezi> recommend(String username){
         List<Tiezi> tests = tieziService.recommend();
         return tests;
     }
 
     @PostMapping("/delete")
-    public String delete(int id,int sign){
+    public String delete(String username,int id,int sign){
         tieziService.delete(id,sign);
         return "delete";
     }
 
     @PostMapping("/like")
-    public String like(int id,int sign){
+    public String like(String username,int id,int sign){
         tieziService.like(id,sign);
         return "like";
     }

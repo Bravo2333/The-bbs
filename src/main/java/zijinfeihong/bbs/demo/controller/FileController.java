@@ -2,7 +2,6 @@ package zijinfeihong.bbs.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -28,7 +27,7 @@ public class FileController {
 
     //单文件上传
     @PostMapping("/upload")
-    public String upload(MultipartFile file){
+    public String upload(String username,MultipartFile file){
         if (file.isEmpty()) {
             return "file is empty";
         }
@@ -51,7 +50,7 @@ public class FileController {
 
     //多文件上传
     @PostMapping("/batch")
-    public String batch(HttpServletRequest request){
+    public String batch(String username,HttpServletRequest request){
         List<MultipartFile> files = ((MultipartHttpServletRequest) request)
                 .getFiles("file");
         MultipartFile file = null;
@@ -81,7 +80,7 @@ public class FileController {
     }
 
     @PostMapping("/download")
-    public String download(HttpServletRequest request, HttpServletResponse response){
+    public String download(String username,HttpServletRequest request, HttpServletResponse response){
         String fileName = "ass.md";
         if (fileName != null) {
             File file = new File("E:\\asshole.md");

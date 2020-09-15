@@ -14,6 +14,17 @@ public class Users {
         this.headpath="";
     }
 
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", headpath='" + headpath + '\'' +
+                '}';
+    }
+
     public String getUsername() {
         return username;
     }
